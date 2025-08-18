@@ -1,0 +1,11 @@
+{
+  "name": "yun-monitor",
+  "version": "1.0.0",
+  "description": "frontend monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joanna",
+  "license": "ISC"
+}
