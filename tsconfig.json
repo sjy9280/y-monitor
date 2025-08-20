@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@monitor/*": ["packages/*/src"]
-    }
+    },
+    "lib": ["ES6", "DOM"]
   }
 }
