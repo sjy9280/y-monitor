@@ -1,3 +1,4 @@
 export const enum BrowserEventTypes {
-  DOM = 'dom'
+  DOM = 'dom',
+  XHR = 'xhr'
 }
