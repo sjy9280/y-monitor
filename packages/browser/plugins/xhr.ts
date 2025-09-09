@@ -10,5 +10,5 @@ const xhrPlugin: BasePluginType<BrowserEventTypes, BrowserClient> = {
 };
 
 function xhrMonitor(this: BrowserClient, notify: (eventName: BrowserEventTypes, data: any) => void) {
-  const { options };
+  const { options } = this;
 }

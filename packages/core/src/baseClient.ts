@@ -1,10 +1,12 @@
 import { EventTypes } from '@monitor/shared';
-import { BaseClientType, BaseOptionsType, BasePluginType, LogTypes } from '@monitor/types';
+import { BaseClientType, BaseOptionsFiledsIntegrationType, BaseOptionsType, BasePluginType, LogTypes } from '@monitor/types';
 import { Subscribe } from './subscribe';
 
-export abstract class BaseClient<O extends BaseOptionsType, E extends EventTypes = EventTypes> implements BaseClientType {
+export abstract class BaseClient<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType, E extends EventTypes = EventTypes>
+  implements BaseClientType
+{
   SDK_NAME: string;
-  options: O;
+  options: BaseOptionsFiledsIntegrationType;
   constructor(options: O) {
     this.options = options;
   }

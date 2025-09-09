@@ -1,12 +1,16 @@
 import { BaseClient } from '@monitor/core';
-import { BrowserOptionsType } from './types/browserOptionsType';
 import { EventTypes } from '@monitor/shared';
+import { BrowserTransport } from './browserTransport';
+import { BrowserOptions } from './browserOptions';
+import { BrowserOptionsType } from './types';
 
 export class BrowserClient extends BaseClient<BrowserOptionsType, EventTypes> {
-  options: BrowserOptionsType;
+  transport: BrowserTransport;
+  options: BrowserOptions;
   constructor(options) {
     super(options);
-    this.options = options;
+    this.options = new BrowserOptions(options);
+    this.transport = new BrowserTransport(options)
   }
   isPluginEnable(name: EventTypes) {
     return true;
