@@ -1,5 +1,5 @@
 {
-  "name": "@yun-monitor/core",
+  "name": "@monitor/browser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,9 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@mitojs/types": "3.0.1",
     "@mitojs/utils": "3.0.1",
-    "@mitojs/shared": "3.0.1"
+    "@mitojs/core": "3.0.1",
+    "@mitojs/shared": "3.0.1",
+    "@mitojs/types": "3.0.1"
   }
 }

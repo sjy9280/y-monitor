@@ -1,7 +1,14 @@
+import { HttpCollectedType } from './http';
+
 export enum Severity {
-  /*上报的等级错误*/
+  Else = 'else',
+  Error = 'error',
+  Warning = 'warning',
+  Info = 'info',
+  Debug = 'debug',
+  /** 上报的错误等级 */
   Low = 'low',
-  Medium = 'medium',
+  Normal = 'normal',
   High = 'high',
   Critical = 'critical'
 }
@@ -12,3 +19,16 @@ export interface LogTypes {
   level?: Severity;
   message?: NumStrObj;
 }
+
+export interface IAnyObject {
+  [key: string]: any;
+}
+
+export interface MITOXMLHttpRequest extends XMLHttpRequest {
+  [key: string]: any;
+  httpCollect?: HttpCollectedType;
+}
+
+export type voidFun = () => void;
+
+export type TNumStrObj = number | string | object;

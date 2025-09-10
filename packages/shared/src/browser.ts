@@ -11,5 +11,6 @@ export const enum BrowserBreadcrumbTypes {
   FETCH = 'Fetch',
   UNHANDLEDREJECTION = 'Unhandledrejection',
   RESOURCE = 'Resource',
-  CODE_ERROR = 'Code Error'
+  CODE_ERROR = 'Code Error',
+  CUSTOMER = 'Customer'
 }

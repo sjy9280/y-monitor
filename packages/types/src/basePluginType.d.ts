@@ -13,3 +13,13 @@ export interface BasePluginType<E extends EventTypes = EventTypes, T extends Bas
   // 接收transform处理后的数据
   consumer: (this: T, data: any) => void;
 }
+
+export interface RouteChangeCollectType {
+  from: string;
+  to: string;
+}
+
+export interface ConsoleCollectType {
+  args: any[];
+  level: string;
+}

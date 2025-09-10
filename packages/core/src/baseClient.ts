@@ -1,12 +1,15 @@
 import { EventTypes } from '@monitor/shared';
 import { BaseClientType, BaseOptionsFiledsIntegrationType, BaseOptionsType, BasePluginType, LogTypes } from '@monitor/types';
 import { Subscribe } from './subscribe';
+import { Breadcrumb } from './breadcrumb';
 
 export abstract class BaseClient<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType, E extends EventTypes = EventTypes>
   implements BaseClientType
 {
   SDK_NAME: string;
-  options: BaseOptionsFiledsIntegrationType;
+  options: O;
+  abstract breadcrumb: Breadcrumb;
+
   constructor(options: O) {
     this.options = options;
   }
