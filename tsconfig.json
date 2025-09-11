@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "@monitor/*": ["packages/*/src"]
     },
-    "lib": ["ES6", "DOM"]
-  }
+    "moduleResolution": "node",
+    "target": "es5",
+    "removeComments": true,
+    "lib": ["ES6", "DOM"],
+
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "include": ["packages"]
 }
