@@ -1,19 +1,26 @@
 {
-  "name": "yun-monitor",
+  "name": "y-monitor",
   "version": "1.0.0",
   "description": "frontend monitor",
   "main": "index.js",
   "scripts": {
+    "build": "node script/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joanna",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
+    "minimist": "^1.2.8",
     "rollup": "^4.50.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sizes": "^1.1.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-visualizer": "^6.0.3",
     "typescript": "^5.9.2"
   }
 }
