@@ -7,4 +7,5 @@ function run() {
   const paramTarget = argv._
   LOCALDIR = argv.local
 
+  console.log('test lerna publish')
 }
