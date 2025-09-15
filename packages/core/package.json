@@ -1,6 +1,6 @@
 {
   "name": "@monitor/core",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.2-alpha.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,6 @@
     "@mitojs/shared": "3.0.1",
     "@mitojs/types": "3.0.1",
     "@mitojs/utils": "3.0.1"
-  }
+  },
+  "gitHead": "4feddba1d1629d3b5220bdeda00049b88e0a3f94"
 }
