@@ -91,6 +91,10 @@ export function httpTransform(httpCollectedData: HttpCollectedType): HttpTransfo
   };
 }
 
+function test() {
+  console.log('test lerna publish');
+}
+
 export function httpTransformedDataConsumer(this: BrowserClient, transformedData: HttpTransformType) {
   const type = transformedData.request.httpType === HttpTypes.FETCH ? BrowserBreadcrumbTypes.FETCH : BrowserBreadcrumbTypes.XHR;
   // time 是为了保持顺序，紧跟在点击事件后面
