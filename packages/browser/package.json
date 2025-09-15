@@ -9,9 +9,9 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@mitojs/utils": "3.0.1",
     "@mitojs/core": "3.0.1",
     "@mitojs/shared": "3.0.1",
-    "@mitojs/types": "3.0.1"
+    "@mitojs/types": "3.0.1",
+    "@mitojs/utils": "3.0.1"
   }
 }
