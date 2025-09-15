@@ -7,6 +7,9 @@
     "build": "node script/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "Joanna",
   "license": "ISC",
   "devDependencies": {
@@ -15,6 +18,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
+    "lerna": "^8.2.3",
     "minimist": "^1.2.8",
     "rollup": "^4.50.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
