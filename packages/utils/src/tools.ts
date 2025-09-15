@@ -175,5 +175,4 @@ export function silentConsoleScope(callback: Function) {
 
 export function getUrlWithEnv(): string {
   return getLocationHref();
-  return '';
 }

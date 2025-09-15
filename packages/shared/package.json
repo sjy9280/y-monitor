@@ -1,6 +1,6 @@
 {
   "name": "@monitor/shared",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.0",
   "description": "@monitor/shared",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,5 @@
     "registry": "https://registry.npmjs.org/"
   },
   "author": "Joanna",
-  "license": "ISC",
-  "gitHead": "4feddba1d1629d3b5220bdeda00049b88e0a3f94"
+  "license": "ISC"
 }

@@ -1,16 +1,32 @@
-import resolve from ''
+import resolve from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
 import commonjs from '@rollup/plugin-commonjs'
 import size from 'rollup-plugin-sizes'
 import typescript from 'rollup-plugin-typescript2'
-import { visiualizer } from 'rollup-plugin-visualizer'
-import { terser } from '@rollup/plugin-terser'
+import { visualizer } from 'rollup-plugin-visualizer'
+import terser from '@rollup/plugin-terser'
 import clear from 'rollup-plugin-clear'
 import cleanup from 'rollup-plugin-cleanup'
+import path, { dirname } from 'path'
+import fs from 'fs'
+// const resolve = require('@rollup/plugin-node-resolve')
+// const json = require('@rollup/plugin-json')
+// const commonjs = require('@rollup/plugin-commonjs')
+// const size = require('rollup-plugin-sizes')
+// const typescript = require('rollup-plugin-typescript2')
+// const terser = require('@rollup/plugin-terser')
+// const clear = require('rollup-plugin-clear')
+// const cleanup = require('rollup-plugin-cleanup')
+// const pkg = require('rollup-plugin-visualizer')
 
 
-const path = require('path')
-const fs = require('fs')
+// const path = require('path')
+// const fs = require('fs')
+import { fileURLToPath } from 'url';
+const isDeclaration = process.env.TYPES !== 'false'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 
 // 获取所有包
 const packagesDir = path.resolve(__dirname, 'packages')
@@ -38,10 +54,6 @@ function getCommon(format) {
       resolve(),
       json(),
       commonjs(),
-      visiualizer({
-        title: `${projectName} analyzer`,
-        filename: 'analyzer.html'
-      }),
       size(),
       cleanup({
         comments: 'none'
@@ -59,7 +71,11 @@ function getCommon(format) {
           }
         },
         include: ['*.ts+(|x)', '**/*.ts+(|x)', '../**/*.ts+(|x)']
-      })
+      }),
+      visualizer({
+        title: `${projectName} analyzer`,
+        filename: 'analyzer.html'
+      }),
     ]
   }
   return common

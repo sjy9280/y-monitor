@@ -1,6 +1,6 @@
 {
   "name": "@monitor/browser",
-  "version": "1.0.2-alpha.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,10 +13,9 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@mitojs/core": "3.0.1",
-    "@mitojs/shared": "3.0.1",
-    "@mitojs/types": "3.0.1",
-    "@mitojs/utils": "3.0.1"
-  },
-  "gitHead": "4feddba1d1629d3b5220bdeda00049b88e0a3f94"
+    "@monitor/core": "1.0.0",
+    "@monitor/shared": "1.0.0",
+    "@monitor/types": "1.0.0",
+    "@monitor/utils": "1.0.0"
+  }
 }
