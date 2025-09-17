@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="465a36f1-7b40-4ae3-819c-9f2589cbd9b7" name="Default Changelist" comment="" />
+    <list default="true" id="465a36f1-7b40-4ae3-819c-9f2589cbd9b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/packages/browser/package.json" />
+  </component>
   <component name="ProjectId" id="32SXbErzL69vQjf4Wx4EKMYHpb8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -17,8 +24,32 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="20.0.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="20.0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/utils" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v20.0.0/bin/node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/utils" />
+      <recent name="$PROJECT_DIR$/packages/types" />
+      <recent name="$PROJECT_DIR$/packages/shared" />
+      <recent name="$PROJECT_DIR$/packages/core" />
+      <recent name="$PROJECT_DIR$/packages/browser" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/browser" />
+      <recent name="$PROJECT_DIR$/packages/browser/src" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -29,6 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1757415016614</updated>
       <workItem from="1757415019107" duration="985000" />
+      <workItem from="1757927773840" duration="17052000" />
     </task>
     <task id="LOCAL-00001" summary="feat:update">
       <created>1757416530361</created>
@@ -44,7 +76,42 @@
       <option name="project" value="LOCAL" />
       <updated>1757416539799</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat:update">
+      <created>1757932234521</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757932234521</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat:update">
+      <created>1758100244210</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758100244210</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat:update">
+      <created>1758100773861</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758100773861</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat:update">
+      <created>1758100825804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1758100825804</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat:update">
+      <created>1758100846861</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1758100846861</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -60,6 +127,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat:update" />
