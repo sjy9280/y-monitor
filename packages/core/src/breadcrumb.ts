@@ -1,6 +1,6 @@
-import { ToStringTypes } from '@monitor/shared';
-import { logger, getTimestamp, silentConsoleScope, toStringValidateOption } from '@monitor/utils';
-import { BaseOptionsFiledsIntegrationType, BreadcrumbPushDataType } from '@monitor/types';
+import { ToStringTypes } from '@y-monitor/shared';
+import { logger, getTimestamp, silentConsoleScope, toStringValidateOption } from '@y-monitor/utils';
+import { BaseOptionsFieldsIntegrationType, BreadcrumbPushDataType } from '@y-monitor/types';
 
 /**
  * 用户行为栈存储，实体类
@@ -9,7 +9,7 @@ import { BaseOptionsFiledsIntegrationType, BreadcrumbPushDataType } from '@monit
  * @class Breadcrumb
  * @template O
  */
-export class Breadcrumb<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType> {
+export class Breadcrumb<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType> {
   private maxBreadcrumbs = 10;
   private beforePushBreadcrumb: unknown = null;
   private stack: BreadcrumbPushDataType[] = [];
@@ -60,7 +60,8 @@ export class Breadcrumb<O extends BaseOptionsFiledsIntegrationType = BaseOptions
   }
 
   bindOptions(options: Partial<O> = {}): void {
-    const { maxBreadcrumbs, beforePushBreadcrumb } = options;
+    const maxBreadcrumbs = options.maxBreadcrumbs;
+    const beforePushBreadcrumb = options.beforePushBreadcrumb
     toStringValidateOption(maxBreadcrumbs, 'maxBreadcrumbs', ToStringTypes.Number) && (this.maxBreadcrumbs = maxBreadcrumbs);
     toStringValidateOption(beforePushBreadcrumb, 'beforePushBreadcrumb', ToStringTypes.Function) &&
       (this.beforePushBreadcrumb = beforePushBreadcrumb);

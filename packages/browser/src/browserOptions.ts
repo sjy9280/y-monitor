@@ -1,7 +1,7 @@
-import { BaseOptions } from '@monitor/core';
+import { BaseOptions } from '@y-monitor/core';
 import { BrowserOptionsType } from './types';
-import { ToStringTypes } from '@monitor/shared';
-import { validateOptionsAndSet } from '@monitor/utils';
+import { ToStringTypes } from '@y-monitor/shared';
+import { validateOptionsAndSet } from '@y-monitor/utils';
 
 export class BrowserOptions extends BaseOptions<BrowserOptionsType> {
   slientXhr: boolean;

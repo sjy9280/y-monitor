@@ -1,8 +1,8 @@
-export interface BaseOptionsType<O extends BaseOptionsFiledsIntegrationType> extends BaseOptionsFiledsIntegrationType {
+export interface BaseOptionsType<O extends BaseOptionsFieldsIntegrationType> extends BaseOptionsFieldsIntegrationType {
   bindOptions(options: O): void;
 }
 
-export type BaseOptionsFiledsIntegrationType = BaseOptionsFieldsType & BaseOptionsHooksType;
+export type BaseOptionsFieldsIntegrationType = BaseOptionsFieldsType & BaseOptionsHooksType;
 
 export interface BaseOptionsFieldsType {
   /**

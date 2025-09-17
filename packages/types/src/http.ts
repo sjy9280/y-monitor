@@ -1,4 +1,4 @@
-import { HttpTypes } from '@monitor/shared';
+import { HttpTypes } from '@y-monitor/shared';
 import { BaseTransformType } from './transport';
 
 export interface HttpCollectedType {

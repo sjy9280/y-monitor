@@ -1,8 +1,8 @@
-import { ToStringTypes, SDK_NAME, SDK_VERSION } from '@monitor/shared';
-import { BaseOptionsFiledsIntegrationType, AuthInfo, ReportDataType, TransportDataType, BreadcrumbPushDataType } from '@monitor/types';
-import { isEmpty, isInclude, validateOptionsAndSet, logger, Queue } from '@monitor/utils';
+import { ToStringTypes, SDK_NAME, SDK_VERSION } from '@y-monitor/shared';
+import { BaseOptionsFieldsIntegrationType, AuthInfo, ReportDataType, TransportDataType, BreadcrumbPushDataType } from '@y-monitor/types';
+import { isEmpty, isInclude, validateOptionsAndSet, logger, Queue } from '@y-monitor/utils';
 
-export abstract class BaseTransport<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType> {
+export abstract class BaseTransport<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType> {
   dsn = '';
   apiKey = '';
   beforeDataReport = null;

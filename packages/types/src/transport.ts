@@ -1,4 +1,4 @@
-import { ErrorTypes } from '@monitor/shared';
+import { ErrorTypes } from '@y-monitor/shared';
 import { BreadcrumbPushDataType } from './breadcrumb';
 import { HttpTransformType } from './http';
 

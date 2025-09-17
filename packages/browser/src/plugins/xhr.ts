@@ -1,5 +1,5 @@
-import { BREADCRUMBCATEGORYS, BrowserBreadcrumbTypes, BrowserEventTypes, ErrorTypes, globalVar, HTTP_CODE, HttpTypes } from '@monitor/shared';
-import { BasePluginType, MITOXMLHttpRequest, voidFun, HttpCollectedType, HttpTransformType, Severity } from '@monitor/types';
+import { BREADCRUMBCATEGORYS, BrowserBreadcrumbTypes, BrowserEventTypes, ErrorTypes, globalVar, HTTP_CODE, HttpTypes } from '@y-monitor/shared';
+import { BasePluginType, MITOXMLHttpRequest, voidFun, HttpCollectedType, HttpTransformType, Severity } from '@y-monitor/types';
 import { BrowserClient } from '../browserClient';
 import {
   _global,
@@ -11,7 +11,7 @@ import {
   SpanStatus,
   getRealPath,
   getLocationHref
-} from '@monitor/utils';
+} from '@y-monitor/utils';
 import { addBreadcrumbInBrowser } from '../utils';
 
 const xhrPlugin: BasePluginType<BrowserEventTypes, BrowserClient> = {

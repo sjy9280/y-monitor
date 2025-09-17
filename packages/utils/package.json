@@ -1,11 +1,14 @@
 {
-  "name": "@monitor/utils",
+  "name": "@y-monitor/utils",
   "version": "1.0.0",
-  "description": "@monitor/utils",
-  "main": "index.js",
+  "description": "@y-monitor/utils",
+  "main": "dist/utils.js",
+  "module": "dist/utils.esm.js",
+  "types": "dist/utils.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": ["dist"],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

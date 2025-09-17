@@ -1,11 +1,14 @@
 {
-  "name": "@monitor/browser",
+  "name": "@y-monitor/browser",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/browser.js",
+  "module": "dist/browser.esm.js",
+  "types": "dist/browser.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": ["dist"],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -13,9 +16,9 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@monitor/core": "1.0.0",
-    "@monitor/shared": "1.0.0",
-    "@monitor/types": "1.0.0",
-    "@monitor/utils": "1.0.0"
+    "@y-monitor/core": "1.0.0",
+    "@y-monitor/shared": "1.0.0",
+    "@y-monitor/types": "1.0.0",
+    "@y-monitor/utils": "1.0.0"
   }
 }

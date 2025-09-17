@@ -1,4 +1,4 @@
-import { EventTypes } from '@monitor/shared';
+import { EventTypes } from '@y-monitor/shared';
 import { BaseClient } from 'packages/core/src/baseClient';
 import { BaseClientType } from './baseClientType';
 

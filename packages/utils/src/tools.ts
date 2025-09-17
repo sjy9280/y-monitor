@@ -1,6 +1,6 @@
-import { globalVar, ToStringTypes } from '@monitor/shared';
+import { globalVar, ToStringTypes } from '@y-monitor/shared';
 import { logger } from './logger';
-import { IAnyObject } from '@monitor/types';
+import { IAnyObject } from '@y-monitor/types';
 
 export function throttle(fn: Function, ms: number): Function {
   let isThrottled = false,

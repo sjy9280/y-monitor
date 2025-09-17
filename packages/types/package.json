@@ -1,11 +1,14 @@
 {
-  "name": "@monitor/types",
+  "name": "@y-monitor/types",
   "version": "1.0.0",
-  "description": "@monitor/types",
-  "main": "index.js",
+  "description": "@y-monitor/types",
+  "main": "dist/types.js",
+  "module": "dist/types.esm.js",
+  "types": "dist/types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": ["dist"],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

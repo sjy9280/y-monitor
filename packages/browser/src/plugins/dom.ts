@@ -1,6 +1,6 @@
-import { BrowserEventTypes } from '@monitor/shared';
-import { BasePluginType } from '@monitor/types';
-import { _global, throttle } from '@monitor/utils';
+import { BrowserEventTypes } from '@y-monitor/shared';
+import { BasePluginType } from '@y-monitor/types';
+import { _global, throttle } from '@y-monitor/utils';
 
 const domPlugin: BasePluginType<BrowserEventTypes> = {
   name: BrowserEventTypes.DOM,

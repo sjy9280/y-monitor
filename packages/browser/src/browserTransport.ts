@@ -1,8 +1,8 @@
-import { BaseTransport } from '@monitor/core';
+import { BaseTransport } from '@y-monitor/core';
 import { BrowserOptionsType } from './types';
-import { TransportDataType, ReportDataType } from '@monitor/types';
-import { MethodTypes } from '@monitor/shared';
-import { safeStringify } from '@monitor/utils';
+import { TransportDataType, ReportDataType } from '@y-monitor/types';
+import { MethodTypes } from '@y-monitor/shared';
+import { safeStringify } from '@y-monitor/utils';
 
 export class BrowserTransport extends BaseTransport<BrowserOptionsType> {
   constructor(options: BrowserOptionsType) {

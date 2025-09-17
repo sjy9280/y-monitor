@@ -1,5 +1,5 @@
-import { BaseClient, Breadcrumb } from '@monitor/core';
-import { EventTypes } from '@monitor/shared';
+import { BaseClient, Breadcrumb } from '@y-monitor/core';
+import { EventTypes } from '@y-monitor/shared';
 import { BrowserTransport } from './browserTransport';
 import { BrowserOptions } from './browserOptions';
 import { BrowserOptionsType } from './types';

@@ -1,4 +1,4 @@
-import { BREADCRUMBCATEGORYS, BreadcrumbTypes } from '@monitor/shared';
+import { BREADCRUMBCATEGORYS, BreadcrumbTypes } from '@y-monitor/shared';
 import { Severity, TNumStrObj } from './common';
 import { ReportDataType } from './transport';
 import { ConsoleCollectType, RouteChangeCollectType } from './basePluginType';

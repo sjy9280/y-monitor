@@ -1,4 +1,4 @@
-import { BasePluginType } from '@monitor/types';
+import { BasePluginType } from '@y-monitor/types';
 import { BrowserOptionsType } from './types';
 import { BrowserClient } from './browserClient';
 import xhrPlugin from './plugins/xhr';

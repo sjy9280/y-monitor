@@ -35,11 +35,11 @@ const packages = fs.readdirSync(path.resolve(__dirname, 'packages'));
 
 // 目标包
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
-const packageDirDist = process.env.LOCALDIR === undefined ? `${packageDir}/dist` : process.env.LOCALDIR
+const packageDirDist =`${packageDir}/dist`
 
 const name = path.basename(packageDir)
 
-const projectName = '@monitor'
+const projectName = '@y-monitor'
 const paths = {}
 
 packages.forEach((item) => {

@@ -1,5 +1,5 @@
-import { BREADCRUMBCATEGORYS, BrowserBreadcrumbTypes, ErrorTypes } from '@monitor/shared';
-import { Severity } from '@monitor/types';
+import { BREADCRUMBCATEGORYS, BrowserBreadcrumbTypes, ErrorTypes } from '@y-monitor/shared';
+import { Severity } from '@y-monitor/types';
 import { getTimestamp, getUrlWithEnv } from './tools';
 
 /**

@@ -2,11 +2,11 @@
  * 基础配置绑定
  */
 
-import { ToStringTypes } from '@monitor/shared';
-import { BaseOptionsFiledsIntegrationType, BaseOptionsType } from '@monitor/types';
-import { validateOptionsAndSet } from '@monitor/utils';
+import { ToStringTypes } from '@y-monitor/shared';
+import { BaseOptionsFieldsIntegrationType, BaseOptionsType } from '@y-monitor/types';
+import { validateOptionsAndSet } from '@y-monitor/utils';
 
-export class BaseOptions<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType> implements BaseOptionsType<O> {
+export class BaseOptions<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType> implements BaseOptionsType<O> {
   throttleDelayTime = 0;
   filterXhrUrlRegExp: RegExp;
   includeHttpUrlTraceIdRegExp = /.*/;

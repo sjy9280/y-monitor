@@ -1,9 +1,9 @@
-import { EventTypes } from '@monitor/shared';
-import { BaseClientType, BaseOptionsFiledsIntegrationType, BaseOptionsType, BasePluginType, LogTypes } from '@monitor/types';
+import { EventTypes } from '@y-monitor/shared';
+import { BaseClientType, BaseOptionsFieldsIntegrationType, BaseOptionsType, BasePluginType, LogTypes } from '@y-monitor/types';
 import { Subscribe } from './subscribe';
 import { Breadcrumb } from './breadcrumb';
 
-export abstract class BaseClient<O extends BaseOptionsFiledsIntegrationType = BaseOptionsFiledsIntegrationType, E extends EventTypes = EventTypes>
+export abstract class BaseClient<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType, E extends EventTypes = EventTypes>
   implements BaseClientType
 {
   SDK_NAME: string;

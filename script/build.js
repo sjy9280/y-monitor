@@ -1,6 +1,6 @@
 const { getArgv, binRun, targets: allTargets } = require('./utils')
 const chalk = require('chalk')
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const consola = require('consola')
 let buildTypes = true
@@ -35,13 +35,6 @@ async function runParallel(maxConcurrency, sources, iteratorFn) {
   for (const item of sources) {
     const p = Promise.resolve().then(() => iteratorFn(item))
     ret.push(p)
-    // if (maxConcurrency <= source.length) {
-    //   const e = p.then(() => executing.splice(executing.indexOf(e)), 1)
-    //   executing.push(e)
-    //   if (executing.length >= maxConcurrency) {
-    //     await Promise.race(executing)
-    //   }
-    // }
   }
   return Promise.all(ret)
 }
@@ -61,8 +54,6 @@ async function rollupBuild(target) {
     '-c',
     '--environment',
     [
-      // `COMMIT:${commit}`,
-      // `NODE_ENV:${env}`,
       `TARGET:${target}`,
       `TYPES:${buildTypes}`,
       `LOCALDIR:${LOCALDIR}`
@@ -86,19 +77,6 @@ async function rollupBuild(target) {
       showVerboseMessages: false
     })
     if (extractorResult.succeeded) {
-      // const typesDir = path.resolve(pkgDir, 'types')
-      // if (await fs.exists(typesDir)) {
-      //   const dtsPath = path.resolve(pkgDir, pkg.types)
-      //   const existing = await fs.readFile(dtsPath, 'utf-8')
-      //   const typeFiles = await fs.readdir(typesDir)
-      //   const toAdd = await Promise.all(
-      //     typeFiles.map((file) => {
-      //       return fs.readFile(path.resolve(typesDir, file), 'utf-8')
-      //     })
-      //   )
-      //   console.log('add', toAdd)
-      //   await fs.writeFile(dtsPath, existing + '\n' + toAdd.join('\n'))
-      // }
       consola.success(chalk.green(`API Extractor completed successfully.`))
     }
     consola.info('pkgDir', pkgDir)
