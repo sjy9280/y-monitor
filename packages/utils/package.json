@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/utils",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1",
   "description": "@y-monitor/utils",
   "main": "dist/utils.js",
   "module": "dist/utils.esm.js",
