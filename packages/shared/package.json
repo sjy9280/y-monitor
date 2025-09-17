@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/shared",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.0",
   "description": "monitor/shared",
   "main": "dist/share.js",
   "module": "dist/share.esm.js",
@@ -8,7 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
