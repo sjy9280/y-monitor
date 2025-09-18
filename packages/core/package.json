@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/core.js",
   "module": "dist/core.esm.js",
@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@y-monitor/shared": "^1.0.1",
-    "@y-monitor/types": "^1.0.1",
-    "@y-monitor/utils": "^1.0.1"
+    "@y-monitor/types": "^1.0.2",
+    "@y-monitor/utils": "^1.0.2"
   }
 }

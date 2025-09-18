@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "@y-monitor/types",
   "main": "dist/types.js",
   "module": "dist/types.esm.js",
