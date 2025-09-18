@@ -1,8 +1,10 @@
 import { BREADCRUMBCATEGORYS, BrowserBreadcrumbTypes, BrowserEventTypes, ErrorTypes, globalVar, HTTP_CODE, HttpTypes } from '@y-monitor/shared';
 import { BasePluginType, MITOXMLHttpRequest, voidFun, HttpCollectedType, HttpTransformType, Severity } from '@y-monitor/types';
 import { BrowserClient } from '../browserClient';
-import {
-  _global,
+import * as utils from '@y-monitor/utils';
+import { addBreadcrumbInBrowser } from '../utils';
+
+const { _global,
   getTimestamp,
   on,
   replaceOld,
@@ -11,18 +13,21 @@ import {
   SpanStatus,
   getRealPath,
   getLocationHref
-} from '@y-monitor/utils';
-import { addBreadcrumbInBrowser } from '../utils';
+} = utils;
+
+console.log('=======', utils);
 
 const xhrPlugin: BasePluginType<BrowserEventTypes, BrowserClient> = {
   name: BrowserEventTypes.XHR,
   monitor: function (notify: () => void): void {
     xhrMonitor.call(this, notify);
   },
-  transform: function (data: any): void {
-    return;
+  transform: function (data: HttpCollectedType) {
+    return httpTransform(data);
   },
-  consumer: function (data: any): void {}
+  consumer: function (data: any): void {
+    httpTransformedDataConsumer.call(this, data);
+  }
 };
 
 function xhrMonitor(this: BrowserClient, notify: (eventName: BrowserEventTypes, data: any) => void) {
@@ -89,10 +94,6 @@ export function httpTransform(httpCollectedData: HttpCollectedType): HttpTransfo
     message,
     name
   };
-}
-
-function test() {
-  console.log('test lerna publish');
 }
 
 export function httpTransformedDataConsumer(this: BrowserClient, transformedData: HttpTransformType) {

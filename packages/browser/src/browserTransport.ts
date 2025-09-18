@@ -11,14 +11,14 @@ export class BrowserTransport extends BaseTransport<BrowserOptionsType> {
   }
 
   post(data: TransportDataType | any, url: string): void {
-    const reqestFunc = () => {
+    const requestFunc = () => {
       const xhr = new XMLHttpRequest();
       xhr.open(MethodTypes.Post, url);
       xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
       xhr.withCredentials = true;
       xhr.send(safeStringify(data));
     };
-    this.queue.addTask(reqestFunc);
+    this.queue.addTask(requestFunc);
   }
   getTransportData(data: ReportDataType) {
     return {

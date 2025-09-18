@@ -16,5 +16,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "author": "Joanna",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@y-monitor/shared": "^1.0.1"
+  }
 }

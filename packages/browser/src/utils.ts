@@ -1,7 +1,7 @@
 import { BrowserBreadcrumbTypes } from '@y-monitor/shared';
 import { BrowserClient } from './browserClient';
 import { Severity } from '@y-monitor/types';
-import { getBreadcrumbCategoryInBrowser } from 'packages/utils/src/browser';
+import { getBreadcrumbCategoryInBrowser } from '@y-monitor/utils';
 
 export function addBreadcrumbInBrowser(this: BrowserClient, data: any, type: BrowserBreadcrumbTypes, level = Severity.Info, params: any = {}) {
   return this.breadcrumb.push({

@@ -1,5 +1,4 @@
 import { EventTypes } from '@y-monitor/shared';
-import { BaseClient } from 'packages/core/src/baseClient';
 import { BaseClientType } from './baseClientType';
 
 export interface BasePluginType<E extends EventTypes = EventTypes, T extends BaseClientType = BaseClientType> {
