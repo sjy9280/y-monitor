@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@y-monitor/core": "^1.0.2",
-    "@y-monitor/shared": "^1.0.1",
+    "@y-monitor/shared": "^1.0.2",
     "@y-monitor/types": "^1.0.2",
     "@y-monitor/utils": "^1.0.2"
   }
