@@ -2,9 +2,9 @@
   "name": "@y-monitor/shared",
   "version": "1.0.2",
   "description": "monitor/shared",
-  "main": "dist/share.js",
-  "module": "dist/share.esm.js",
-  "types": "dist/share.d.ts",
+  "main": "dist/shared.js",
+  "module": "dist/shared.esm.js",
+  "types": "dist/shared.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
