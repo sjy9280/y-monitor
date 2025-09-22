@@ -1,9 +1,9 @@
-export const enum BrowserEventTypes {
+export enum BrowserEventTypes {
   DOM = 'dom',
   XHR = 'xhr'
 }
 
-export const enum BrowserBreadcrumbTypes {
+export enum BrowserBreadcrumbTypes {
   ROUTE = 'Route',
   CLICK = 'Click',
   CONSOLE = 'Console',

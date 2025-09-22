@@ -4,7 +4,7 @@ export type EventTypes = BrowserEventTypes;
 
 export type BreadcrumbTypes = BrowserBreadcrumbTypes;
 
-export const enum ToStringTypes {
+export enum ToStringTypes {
   String = 'String',
   Number = 'Number',
   Boolean = 'Boolean',
@@ -22,7 +22,7 @@ export const enum ToStringTypes {
 /**
  * 上报错误类型
  */
-export const enum ErrorTypes {
+export enum ErrorTypes {
   UNKNOWN = 'UNKNOWN',
   UNKNOWN_FUNCTION = 'UNKNOWN_FUNCTION',
   JAVASCRIPT = 'JAVASCRIPT',
@@ -35,19 +35,19 @@ export const enum ErrorTypes {
   ROUTE = 'ROUTE'
 }
 
-export const enum HttpTypes {
+export enum HttpTypes {
   XHR = 'xhr',
   FETCH = 'fetch'
 }
 
-export const enum MethodTypes {
+export enum MethodTypes {
   Get = 'GET',
   Post = 'POST',
   Put = 'PUT',
   Delete = 'DELETE'
 }
 
-export const enum HTTP_CODE {
+export enum HTTP_CODE {
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
   INTERNAL_EXCEPTION = 500
@@ -66,7 +66,7 @@ export { globalVar };
 /**
  * 用户行为类型
  */
-export const enum BREADCRUMBCATEGORYS {
+export enum BREADCRUMBCATEGORYS {
   HTTP = 'http',
   USER = 'user',
   DEBUG = 'debug',
