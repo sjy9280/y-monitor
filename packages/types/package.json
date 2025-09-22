@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/types",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "@y-monitor/types",
   "main": "dist/types.js",
   "module": "dist/types.esm.js",
@@ -18,6 +18,6 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@y-monitor/shared": "^1.0.1"
+    "@y-monitor/shared": "^1.0.2"
   }
 }
