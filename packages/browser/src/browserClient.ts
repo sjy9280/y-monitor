@@ -12,6 +12,7 @@ export class BrowserClient extends BaseClient<BrowserOptionsType, EventTypes> {
     super(options);
     this.options = new BrowserOptions(options);
     this.transport = new BrowserTransport(options);
+    this.breadcrumb = new Breadcrumb(options)
   }
   isPluginEnable(name: EventTypes) {
     return true;
