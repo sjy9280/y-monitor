@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/shared",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "monitor/shared",
   "main": "dist/shared.js",
   "module": "dist/shared.esm.js",
