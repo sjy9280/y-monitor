@@ -1,6 +1,6 @@
 import { ToStringTypes, SDK_NAME, SDK_VERSION } from '@y-monitor/shared';
-import { BaseOptionsFieldsIntegrationType, AuthInfo, ReportDataType, TransportDataType, BreadcrumbPushDataType } from '@y-monitor/types';
-import { isEmpty, isInclude, validateOptionsAndSet, logger, Queue } from '@y-monitor/utils';
+import { BaseOptionsFieldsIntegrationType, AuthInfo, DeviceInfo, ReportDataType, TransportDataType, BreadcrumbPushDataType } from '@y-monitor/types';
+import { isEmpty, isInclude, validateOptionsAndSet, logger, Queue, getOS, getBrowserName, getBrowserVersion } from '@y-monitor/utils';
 
 export abstract class BaseTransport<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType> {
   dsn = '';
@@ -36,6 +36,15 @@ export abstract class BaseTransport<O extends BaseOptionsFieldsIntegrationType =
       sdkVersion: SDK_VERSION,
       sdkName: SDK_NAME,
       apiKey: this.apiKey
+    };
+    return result;
+  }
+
+  getDeviceInfo(): DeviceInfo {
+    const result: DeviceInfo = {
+      deviceOs: getOS(),
+      deviceName: getBrowserName(),
+      deviceVersion: getBrowserVersion()
     };
     return result;
   }

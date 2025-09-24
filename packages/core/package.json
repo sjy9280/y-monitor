@@ -2,9 +2,7 @@
   "name": "@y-monitor/core",
   "version": "1.0.5",
   "description": "",
-  "main": "dist/core.js",
-  "module": "dist/core.esm.js",
-  "types": "dist/core.d.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
