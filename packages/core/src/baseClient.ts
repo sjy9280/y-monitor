@@ -2,13 +2,17 @@ import { EventTypes } from '@y-monitor/shared';
 import { BaseClientType, BaseOptionsFieldsIntegrationType, BaseOptionsType, BasePluginType, LogTypes } from '@y-monitor/types';
 import { Subscribe } from './subscribe';
 import { Breadcrumb } from './breadcrumb';
+import { BaseTransport } from './baseTransport';
 
 export abstract class BaseClient<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType, E extends EventTypes = EventTypes>
   implements BaseClientType
 {
   SDK_NAME: string;
+  SDK_VERSION: string;
   options: O;
+
   abstract breadcrumb: Breadcrumb;
+  abstract transport: BaseTransport;
 
   constructor(options: O) {
     this.options = options;
@@ -16,12 +20,14 @@ export abstract class BaseClient<O extends BaseOptionsFieldsIntegrationType = Ba
 
   // 引用插件
   use(plugins: BasePluginType<E>[]) {
+    if (this.options.disabled) return;
     const subscribe = new Subscribe<E>();
     plugins.forEach((plugin) => {
+      if (!this.isPluginEnable(plugin.name)) return;
       plugin.monitor.call(this, subscribe.notify.bind(subscribe));
       const wrapperTransform = (...args: any[]) => {
-        const res = plugin.transform.apply(this, args);
-        plugin.consumer.call(this, res);
+        const res = plugin.transform?.apply(this, args);
+        plugin.consumer?.call(this, res);
       };
       subscribe.watch(plugin.name, wrapperTransform);
     });

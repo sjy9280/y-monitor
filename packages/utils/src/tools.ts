@@ -100,7 +100,7 @@ export function safeStringify(obj: object): string {
 }
 
 /**
- * 重写对象上面的某个属性
+ * 重写对象上面的某个方法
  *
  * @export
  * @param {IAnyObject} source 需要被重写的对象
@@ -108,7 +108,7 @@ export function safeStringify(obj: object): string {
  * @param {(...args: any[]) => any} replacement 以原有的函数作为参数，执行并重写原有函数
  * @param {boolean} [isForced=false] 是否强制重写（可能原先没有该属性）
  */
-export function replaceOld(source: IAnyObject, name: string, replacement: (...args: any[]) => any, isForced = false): void {
+export function rewirteAttr(source: IAnyObject, name: string, replacement: (...args: any[]) => any, isForced = false): void {
   if (source === undefined) return;
   if (name in source || isForced) {
     const original = source[name];
@@ -173,6 +173,16 @@ export function silentConsoleScope(callback: Function) {
   globalVar.isLogAddBreadcrumb = true;
 }
 
+export function generateUuid(): string {
+  let d = new Date().getTime();
+  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+  return uuid;
+}
+
 export function getUrlWithEnv(): string {
   return getLocationHref();
 }
@@ -227,4 +237,36 @@ export function getBrowserVersion() {
   }
 
   return version;
+}
+
+export function unknownToString(target: unknown): string {
+  if (variableTypeDetection.isString(target)) {
+    return target as string;
+  }
+  if (variableTypeDetection.isUndefined(target)) {
+    return 'undefined';
+  }
+  return JSON.stringify(target);
+}
+
+export function isInstanceOf(wat: any, base: any): boolean {
+  try {
+    // tslint:disable-next-line:no-unsafe-any
+    return wat instanceof base;
+  } catch (_e) {
+    return false;
+  }
+}
+
+export function isError(wat: any): boolean {
+  switch (nativeToString.call(wat)) {
+    case '[object Error]':
+      return true;
+    case '[object Exception]':
+      return true;
+    case '[object DOMException]':
+      return true;
+    default:
+      return isInstanceOf(wat, Error);
+  }
 }
