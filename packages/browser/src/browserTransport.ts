@@ -23,6 +23,7 @@ export class BrowserTransport extends BaseTransport<BrowserOptionsType> {
   getTransportData(data: ReportDataType) {
     return {
       authInfo: this.getAuthInfo(),
+      deviceInfo: this.getDeviceInfo(),
       data
     };
   }

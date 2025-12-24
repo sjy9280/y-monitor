@@ -4,12 +4,15 @@
 
 import { ToStringTypes } from '@y-monitor/shared';
 import { BaseOptionsFieldsIntegrationType, BaseOptionsType } from '@y-monitor/types';
-import { validateOptionsAndSet } from '@y-monitor/utils';
+import { generateUuid, validateOptionsAndSet } from '@y-monitor/utils';
 
 export class BaseOptions<O extends BaseOptionsFieldsIntegrationType = BaseOptionsFieldsIntegrationType> implements BaseOptionsType<O> {
+  enableTraceId = false;
+  traceIdFieldName = 'Trace-Id';
   throttleDelayTime = 0;
   filterXhrUrlRegExp: RegExp;
   includeHttpUrlTraceIdRegExp = /.*/;
+  beforeAjaxSend = null;
 
   constructor() {}
 
@@ -18,12 +21,23 @@ export class BaseOptions<O extends BaseOptionsFieldsIntegrationType = BaseOption
   }
 
   bindOptions(options: O): void {
-    const { throttleDelayTime, filterXhrUrlRegExp, includeHttpUrlTraceIdRegExp } = options;
+    const { enableTraceId, traceIdFieldName, throttleDelayTime, filterXhrUrlRegExp, includeHttpUrlTraceIdRegExp, beforeAjaxSend } = options;
     const optionArr = [
+      [enableTraceId, 'enableTraceId', ToStringTypes.Boolean],
+      [traceIdFieldName, 'traceIdFieldName', ToStringTypes.String],
       [throttleDelayTime, 'throttleDelayTime', ToStringTypes.Number],
       [filterXhrUrlRegExp, 'filterXhrUrlRegExp', ToStringTypes.RegExp],
-      [includeHttpUrlTraceIdRegExp, 'includeHttpUrlTraceIdRegExp', ToStringTypes.RegExp]
+      [includeHttpUrlTraceIdRegExp, 'includeHttpUrlTraceIdRegExp', ToStringTypes.RegExp],
+      [beforeAjaxSend, 'beforeAjaxSend', ToStringTypes.Function]
     ];
     validateOptionsAndSet.call(this, optionArr);
+  }
+
+  setTraceId(httpUrl: string, callback: (headerFieldName: string, traceId: string) => void) {
+    const { includeHttpUrlTraceIdRegExp, enableTraceId } = this;
+    if (enableTraceId && includeHttpUrlTraceIdRegExp && includeHttpUrlTraceIdRegExp.test(httpUrl)) {
+      const traceId = generateUuid();
+      callback(this.traceIdFieldName, traceId);
+    }
   }
 }

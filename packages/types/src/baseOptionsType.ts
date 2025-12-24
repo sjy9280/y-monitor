@@ -5,27 +5,19 @@ export interface BaseOptionsType<O extends BaseOptionsFieldsIntegrationType> ext
 export type BaseOptionsFieldsIntegrationType = BaseOptionsFieldsType & BaseOptionsHooksType;
 
 export interface BaseOptionsFieldsType {
-  /**
-   * report to sevice url
-   */
+  // 错误信息上传地址
   dsn?: string;
+  disabled?: boolean;
   apiKey?: string;
-  /**
-   * When set `enableTraceId` true,traceId will be added in request header, defaul value is `Trace-Id`.
-   * You can configure this field to appoint name
-   */
-  includeHttpUrlTraceIdRegExp?: RegExp;
-  /**
-   * default value is null,mean all ajax http will be monitored.You can set some value to filter url.
-   * It will filter when `filterXhrUrlRegExp.test(xhr.url) === true`
-   */
-  filterXhrUrlRegExp?: RegExp;
-  /**
-   * defaul value is 20,it will be 100 if value more than 100.it mean breadcrumb stack length
-   */
+  debug?: boolean;
+
   maxBreadcrumbs?: number;
 
-  /* throttle delay time of button click event*/
+  enableTraceId?: boolean;
+  traceIdFieldName?: string;
+
+  includeHttpUrlTraceIdRegExp?: RegExp;
+  filterXhrUrlRegExp?: RegExp;
   throttleDelayTime?: number;
 }
 
@@ -41,5 +33,5 @@ export interface BaseOptionsHooksType {
   /**
    * 用户ajax请求之前调用
    */
-  beforeAjaxSend?();
+  beforeAjaxSend?(config, setRequestHeader);
 }

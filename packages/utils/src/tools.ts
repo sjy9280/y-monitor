@@ -100,7 +100,7 @@ export function safeStringify(obj: object): string {
 }
 
 /**
- * 重写对象上面的某个属性
+ * 重写对象上面的某个方法
  *
  * @export
  * @param {IAnyObject} source 需要被重写的对象
@@ -108,7 +108,7 @@ export function safeStringify(obj: object): string {
  * @param {(...args: any[]) => any} replacement 以原有的函数作为参数，执行并重写原有函数
  * @param {boolean} [isForced=false] 是否强制重写（可能原先没有该属性）
  */
-export function replaceOld(source: IAnyObject, name: string, replacement: (...args: any[]) => any, isForced = false): void {
+export function rewirteAttr(source: IAnyObject, name: string, replacement: (...args: any[]) => any, isForced = false): void {
   if (source === undefined) return;
   if (name in source || isForced) {
     const original = source[name];
@@ -173,6 +173,100 @@ export function silentConsoleScope(callback: Function) {
   globalVar.isLogAddBreadcrumb = true;
 }
 
+export function generateUuid(): string {
+  let d = new Date().getTime();
+  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+  return uuid;
+}
+
 export function getUrlWithEnv(): string {
   return getLocationHref();
+}
+
+//获取当前设备信息
+export function getOS() {
+  const ua = navigator.userAgent;
+  if (ua.indexOf('Win') !== -1) return 'Windows';
+  if (ua.indexOf('Mac') !== -1) return 'MacOS';
+  if (ua.indexOf('X11') !== -1) return 'UNIX';
+  if (ua.indexOf('Linux') !== -1) return 'Linux';
+  if (ua.indexOf('Android') !== -1) return 'Android';
+  if (ua.indexOf('iOS') !== -1) return 'iOS';
+  return 'Unknown OS';
+}
+
+// 解析浏览器名称
+export function getBrowserName() {
+  const ua = navigator.userAgent.toLowerCase();
+
+  if (ua.includes('edg/')) return 'Microsoft Edge';
+  if (ua.includes('chrome/')) return 'Google Chrome';
+  if (ua.includes('firefox/')) return 'Mozilla Firefox';
+  if (ua.includes('safari/') && !ua.includes('chrome/')) return 'Safari';
+  if (ua.includes('opera/') || ua.includes('opr/')) return 'Opera';
+  if (ua.includes('trident/') || ua.includes('msie')) return 'Internet Explorer';
+
+  return '未知浏览器';
+}
+
+// 解析浏览器版本
+export function getBrowserVersion() {
+  const ua = navigator.userAgent.toLowerCase();
+  let version = '未知版本';
+
+  // 不同浏览器的版本匹配规则
+  const matches = {
+    'edg/': ua.match(/edg\/([0-9.]+)/),
+    'chrome/': ua.match(/chrome\/([0-9.]+)/),
+    'firefox/': ua.match(/firefox\/([0-9.]+)/),
+    'safari/': ua.match(/version\/([0-9.]+).*safari/),
+    'opr/': ua.match(/opr\/([0-9.]+)/),
+    msie: ua.match(/msie ([0-9.]+)/),
+    'trident/': ua.match(/trident\/[0-9.]+; rv:([0-9.]+)/)
+  };
+
+  for (const [key, match] of Object.entries(matches)) {
+    if (match && match[1]) {
+      version = match[1];
+      break;
+    }
+  }
+
+  return version;
+}
+
+export function unknownToString(target: unknown): string {
+  if (variableTypeDetection.isString(target)) {
+    return target as string;
+  }
+  if (variableTypeDetection.isUndefined(target)) {
+    return 'undefined';
+  }
+  return JSON.stringify(target);
+}
+
+export function isInstanceOf(wat: any, base: any): boolean {
+  try {
+    // tslint:disable-next-line:no-unsafe-any
+    return wat instanceof base;
+  } catch (_e) {
+    return false;
+  }
+}
+
+export function isError(wat: any): boolean {
+  switch (nativeToString.call(wat)) {
+    case '[object Error]':
+      return true;
+    case '[object Exception]':
+      return true;
+    case '[object DOMException]':
+      return true;
+    default:
+      return isInstanceOf(wat, Error);
+  }
 }

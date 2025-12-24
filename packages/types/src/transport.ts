@@ -8,6 +8,12 @@ export interface AuthInfo {
   sdkName: string;
 }
 
+export interface DeviceInfo {
+  deviceOs: string;
+  deviceName: string;
+  deviceVersion: string;
+}
+
 export interface TransportDataType {
   authInfo?: AuthInfo;
   breadcrumb?: BreadcrumbPushDataType[];

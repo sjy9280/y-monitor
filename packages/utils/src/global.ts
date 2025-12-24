@@ -1,6 +1,7 @@
 import { Logger } from './logger';
+import { variableTypeDetection } from './tools';
 
-export const isBrowserEnv = typeof window !== 'undefined' ? window : 0;
+export const isBrowserEnv = variableTypeDetection.isWindow(typeof window !== 'undefined' ? window : 0);
 
 export interface MonitorSupport {
   logger: Logger;
@@ -11,11 +12,11 @@ interface MonitorGlobal {
   __MONITOR__?: MonitorSupport;
 }
 
-export function getGlobal() {
-  if (isBrowserEnv) return window as unknown as MonitorGlobal;
+export function getGlobal<T>() {
+  if (isBrowserEnv) return window as unknown as MonitorGlobal & T;
 }
 
-const _global = getGlobal();
+const _global = getGlobal<Window>();
 const _support = getGlobalMonitorSupport();
 
 function getGlobalMonitorSupport(): MonitorSupport {

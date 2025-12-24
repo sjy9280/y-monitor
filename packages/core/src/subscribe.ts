@@ -1,12 +1,12 @@
-type Callback = (data: any) => any;
+type MonitorCallback = (data: any) => any;
 
 export class Subscribe<T> {
-  events: Map<T, Callback[]> = new Map();
-  constructor() {}
-  watch(eventName: T, callback: Callback) {
+  events: Map<T, MonitorCallback[]> = new Map();
+
+  watch(eventName: T, callback: MonitorCallback) {
     const fns = this.events.get(eventName);
-    if (fns) {
-      this.events.set(eventName, fns.concat(callback));
+    if (!!fns) {
+      fns.push(callback);
       return;
     }
     this.events.set(eventName, [callback]);
@@ -18,7 +18,9 @@ export class Subscribe<T> {
     fns.forEach((fn) => {
       try {
         fn(data);
-      } catch (error) {}
+      } catch (err) {
+        console.error('err', err);
+      }
     });
   }
 }

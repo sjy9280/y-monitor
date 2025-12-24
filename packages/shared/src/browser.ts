@@ -1,6 +1,12 @@
 export enum BrowserEventTypes {
   DOM = 'dom',
-  XHR = 'xhr'
+  XHR = 'xhr',
+  FETCH = 'fetch',
+  ERROR = 'error',
+  HISTORY = 'history',
+  HASHCHANGE = 'hashchange',
+  UNHANDLEDREJECTION = 'unhandledrejection',
+  CONSOLE = 'console'
 }
 
 export enum BrowserBreadcrumbTypes {
