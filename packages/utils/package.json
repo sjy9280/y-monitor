@@ -18,5 +18,6 @@
   "dependencies": {
     "@y-monitor/shared": "^1.0.4",
     "@y-monitor/types": "^1.0.5"
-  }
+  },
+  "gitHead": "7e8106cabdc1482c85d4b1a11ee4c48df01d71cd"
 }

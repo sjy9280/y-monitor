@@ -17,5 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "@y-monitor/shared": "^1.0.4"
-  }
+  },
+  "gitHead": "7e8106cabdc1482c85d4b1a11ee4c48df01d71cd"
 }
