@@ -270,3 +270,7 @@ export function isError(wat: any): boolean {
       return isInstanceOf(wat, Error);
   }
 }
+
+export function isExistProperty(obj: Object, key: string | number | symbol): boolean {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
