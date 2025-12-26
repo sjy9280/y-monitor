@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/browser",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "src/index.ts",
   "scripts": {
@@ -16,9 +16,9 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@y-monitor/core": "^1.0.5",
-    "@y-monitor/shared": "^1.0.3",
-    "@y-monitor/types": "^1.0.4",
-    "@y-monitor/utils": "^1.0.5"
+    "@y-monitor/core": "^1.0.6",
+    "@y-monitor/shared": "^1.0.4",
+    "@y-monitor/types": "^1.0.5",
+    "@y-monitor/utils": "^1.0.6"
   }
 }

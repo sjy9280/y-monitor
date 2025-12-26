@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "@y-monitor/utils",
   "main": "src/index.ts",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Joanna",
   "license": "ISC",
   "dependencies": {
-    "@y-monitor/shared": "^1.0.3",
-    "@y-monitor/types": "^1.0.4"
+    "@y-monitor/shared": "^1.0.4",
+    "@y-monitor/types": "^1.0.5"
   }
 }

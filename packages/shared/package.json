@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/shared",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "monitor/shared",
   "main": "src/index.ts",
   "scripts": {
