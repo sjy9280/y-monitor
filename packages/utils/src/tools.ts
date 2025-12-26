@@ -270,3 +270,38 @@ export function isError(wat: any): boolean {
       return isInstanceOf(wat, Error);
   }
 }
+
+export function isExistProperty(obj: Object, key: string | number | symbol): boolean {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
+/**
+ * 将地址字符串转换成对象
+ * @returns 返回一个对象
+ */
+export function parseUrlToObj(url: string): {
+  host?: string;
+  path?: string;
+  protocol?: string;
+  relative?: string;
+} {
+  if (!url) {
+    return {};
+  }
+
+  // eslint-disable-next-line no-useless-escape
+  const match = url.match(/^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?$/);
+
+  if (!match) {
+    return {};
+  }
+
+  const query = match[6] || '';
+  const fragment = match[8] || '';
+  return {
+    host: match[4],
+    path: match[5],
+    protocol: match[2],
+    relative: match[5] + query + fragment // everything minus origin
+  };
+}

@@ -25,3 +25,10 @@ function getGlobalMonitorSupport(): MonitorSupport {
 }
 
 export { _global, _support };
+
+export function supportsHistory(): boolean {
+  const chrome = (_global as any).chrome;
+  const isChromePackagedApp = chrome && chrome.app && chrome.app.runtime;
+  const hasHistoryApi = 'history' in _global && !!_global.history.pushState && !!_global.history.replaceState;
+  return !isChromePackagedApp && hasHistoryApi;
+}
