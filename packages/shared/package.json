@@ -1,8 +1,10 @@
 {
   "name": "@y-monitor/shared",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "monitor/shared",
-  "main": "src/index.ts",
+  "main": "dist/share.js",
+  "module": "dist/share.esm.js",
+  "types": "dist/share.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
