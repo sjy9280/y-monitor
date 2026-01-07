@@ -54,5 +54,26 @@ export class Logger {
   }
 }
 
-const logger = _support.logger || (_support.logger = new Logger());
-export { logger };
+let loggerInstance: Logger | null = null;
+
+function initLogger() {
+  if (!loggerInstance) {
+    loggerInstance = new Logger();
+    // 延迟设置到 _support 中
+    if (_support) {
+      _support.logger = loggerInstance;
+    }
+  }
+  return loggerInstance;
+}
+
+// 导出函数而不是直接的值
+export const logger = {
+  disable: () => initLogger().disable(),
+  bindOptions: (debug: boolean) => initLogger().bindOptions(debug),
+  enable: () => initLogger().enable(),
+  getEnableStatus: () => initLogger().getEnableStatus(),
+  log: (...args: any[]) => initLogger().log(...args),
+  warn: (...args: any[]) => initLogger().warn(...args),
+  error: (...args: any[]) => initLogger().error(...args)
+};

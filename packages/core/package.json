@@ -1,6 +1,6 @@
 {
   "name": "@y-monitor/core",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "dist/core.js",
   "module": "dist/core.esm.js",

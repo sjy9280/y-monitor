@@ -30,52 +30,50 @@ const xhrPlugin: BasePluginType<BrowserEventTypes, BrowserClient> = {
 function xhrMonitor(this: BrowserClient, notify: (eventName: BrowserEventTypes, data: any) => void) {
   const { options, transport } = this;
   if (!('XMLHttpRequest' in _global)) return;
-  const xhrProto = XMLHttpRequest.prototype
-  rewirteAttr(xhrProto,'open',(originalFn:voidFun):voidFun=>{
-    return function(this:MITOXMLHttpRequest,...args:any[]):void{
+  const xhrProto = XMLHttpRequest.prototype;
+  rewirteAttr(xhrProto, 'open', (originalFn: voidFun): voidFun => {
+    return function (this: MITOXMLHttpRequest, ...args: any[]): void {
       this.httpCollect = {
         request: {
           httpType: HttpTypes.XHR,
-          method: variableTypeDetection.isString(args[0]) ? args[0].toUpperCase() : args[0]，
-          url:args[1]
+          method: variableTypeDetection.isString(args[0]) ? args[0].toUpperCase() : args[0],
+          url: args[1]
         },
-        response:{
-
-        },
-        time:getTimestamp()
+        response: {},
+        time: getTimestamp()
       };
-      originalFn.apply(this,args)
-    }
-  })
+      originalFn.apply(this, args);
+    };
+  });
 
-  rewirteAttr(xhrProto,'send',(originalFn:voidFun):voidFun=>{
-    return function(this:MITOXMLHttpRequest,...args:any[]):void{
-      const {request} = this.httpCollect
-      const {method ,url} = request
+  rewirteAttr(xhrProto, 'send', (originalFn: voidFun): voidFun => {
+    return function (this: MITOXMLHttpRequest, ...args: any[]): void {
+      const { request } = this.httpCollect;
+      const { method, url } = request;
 
-      options.setTraceId(url,(headerFieldName:string,traceId)=>{
-        request.traceId = traceId
-        this.setRequestHeader(headerFieldName,traceId)
-      })
+      options.setTraceId(url, (headerFieldName: string, traceId) => {
+        request.traceId = traceId;
+        this.setRequestHeader(headerFieldName, traceId);
+      });
 
-      options.beforeAjaxSend && options.beforeAjaxSend({method,url},this)
+      options.beforeAjaxSend && options.beforeAjaxSend({ method, url }, this);
 
-      on(this,'loadend',function(this:MITOXMLHttpRequest){
-        const isBlock = transport.isSelfDsn(url) || options.isFilterHttpUrl(url)
-        if(isBlock)return
-        const {responseType,response,status} = this
-        request.data = args[0]
-        const eTime = getTimestamp()
-        if(['','json','text'].indexOf(responseType)!== -1){
-          this.httpCollect.response.data = typeof response === 'object' ? JSON.stringify(response):response
+      on(this, 'loadend', function (this: MITOXMLHttpRequest) {
+        const isBlock = transport.isSelfDsn(url) || options.isFilterHttpUrl(url);
+        if (isBlock) return;
+        const { responseType, response, status } = this;
+        request.data = args[0];
+        const eTime = getTimestamp();
+        if (['', 'json', 'text'].indexOf(responseType) !== -1) {
+          this.httpCollect.response.data = typeof response === 'object' ? JSON.stringify(response) : response;
         }
-        this.httpCollect.response.status = status
-        this.httpCollect.elapsedTime = eTime -this.httpCollect.time
-        notify(BrowserEventTypes.XHR,this.httpCollect)
-      })
-      originalFn.apply(this,args)
-    }
-  })
+        this.httpCollect.response.status = status;
+        this.httpCollect.elapsedTime = eTime - this.httpCollect.time;
+        notify(BrowserEventTypes.XHR, this.httpCollect);
+      });
+      originalFn.apply(this, args);
+    };
+  });
 }
 
 export function httpTransform(httpCollectedData: HttpCollectedType): HttpTransformType {
