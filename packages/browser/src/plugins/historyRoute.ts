@@ -44,3 +44,5 @@ const historyRoutePlugin: BasePluginType = {
     routeTransformConsumer.call(this, transformedData);
   }
 };
+
+export default historyRoutePlugin;

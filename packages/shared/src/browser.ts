@@ -6,7 +6,8 @@ export enum BrowserEventTypes {
   HISTORY = 'history',
   HASHCHANGE = 'hashchange',
   UNHANDLEDREJECTION = 'unhandledrejection',
-  CONSOLE = 'console'
+  CONSOLE = 'console',
+  RRWEB = 'rrweb'
 }
 
 export enum BrowserBreadcrumbTypes {

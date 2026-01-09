@@ -13,6 +13,7 @@ export class BaseOptions<O extends BaseOptionsFieldsIntegrationType = BaseOption
   filterXhrUrlRegExp: RegExp;
   includeHttpUrlTraceIdRegExp = /.*/;
   beforeAjaxSend = null;
+  autoRecord = false;
 
   constructor() {}
 
@@ -21,12 +22,14 @@ export class BaseOptions<O extends BaseOptionsFieldsIntegrationType = BaseOption
   }
 
   bindOptions(options: O): void {
-    const { enableTraceId, traceIdFieldName, throttleDelayTime, filterXhrUrlRegExp, includeHttpUrlTraceIdRegExp, beforeAjaxSend } = options;
+    const { enableTraceId, traceIdFieldName, throttleDelayTime, filterXhrUrlRegExp, includeHttpUrlTraceIdRegExp, autoRecord, beforeAjaxSend } =
+      options;
     const optionArr = [
       [enableTraceId, 'enableTraceId', ToStringTypes.Boolean],
       [traceIdFieldName, 'traceIdFieldName', ToStringTypes.String],
       [throttleDelayTime, 'throttleDelayTime', ToStringTypes.Number],
       [filterXhrUrlRegExp, 'filterXhrUrlRegExp', ToStringTypes.RegExp],
+      [autoRecord, 'autoRecord', ToStringTypes.Boolean],
       [includeHttpUrlTraceIdRegExp, 'includeHttpUrlTraceIdRegExp', ToStringTypes.RegExp],
       [beforeAjaxSend, 'beforeAjaxSend', ToStringTypes.Function]
     ];
